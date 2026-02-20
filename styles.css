@@ -1,0 +1,173 @@
+:root {
+  --green: #009B3A;
+  --gold: #FED100;
+  --black: #000000;
+  --red: #CE1126;
+  --dark: #111111;
+  --light: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Impact, sans-serif;
+  cursor: none;
+}
+
+body {
+  background: var(--black);
+  color: var(--light);
+  overflow-x: hidden;
+  transition: 0.4s;
+}
+
+/* Light Mode */
+body.light-mode {
+  background: var(--light);
+  color: var(--black);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5%;
+  position: fixed;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a, #modeToggle {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Toggle Menu */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--green);
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(120deg, var(--green), var(--black), var(--red));
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Psychedelic Leaf Text */
+.leaf-text {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--green), var(--gold), var(--red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0,255,0,0.5);
+}
+
+/* Sections */
+.section {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.parallax {
+  background: url('https://images.unsplash.com/photo-1603909223429-69bb7101f420') center/cover fixed;
+  color: white;
+}
+
+/* Form */
+form {
+  display: grid;
+  gap: 20px;
+  max-width: 400px;
+  margin: auto;
+}
+
+input, button {
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+}
+
+button {
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Age Gate */
+.age-gate {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.age-box {
+  text-align: center;
+  padding: 40px;
+}
+
+/* Cursor */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--green), var(--gold), var(--red));
+  z-index: 9999;
+  transition: transform 0.1s;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background: black;
+    width: 200px;
+    padding: 20px;
+    transition: 0.4s;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
